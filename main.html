@@ -1,3 +1,4 @@
+ 3:09 PM
 <!DOCTYPE html>
 
 <html>
@@ -10,24 +11,24 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			let max = -Infinity;
-            let secmax = -Infinity;
-
-            for (let i = 0; i < arr.length; i++) {
-                if (arr[i] > max) {
-                    secmax = max;
-                    max = arr[i];
-                } else if (arr[i] > secmax && arr[i] < max) {
-                    secmax = arr[i];
-                }
-            }
-            
-            if (secmax === -Infinity) {
-                return -Infinity;
-            }
-        
-            return secmax;
+			if(arr.length == 0 || arr.length == 1) {
+				return -Infinity;
+			}
+			// else if {
+			// 	let flag = true;
+			// 	for(let i=0; i<arr.length-1; i++) {
+			// 		if(arr[i] != arr[i+1]) {
+			// 			flag = false;
+			// 		}
+			// 	}
+			// }
+			arr.sort((a,b) => a-b)
+			if(arr[0] == arr[arr.length-1]) {
+				return -Infinity;
+			}
+			return arr[arr.length-2];
 		}
+
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
